@@ -566,18 +566,23 @@ const crearCheckOut = () => {
   let colDatos = document.createElement(`div`);
   colDatos.className = `col-12 col-md-8 p-0`
 
+  
   /* titulo datos personales */
   let contenedorUno = document.createElement(`div`);
   contenedorUno.className = `p-3 text-white titulo-pasos mb-2`
   let tituloDatosPersonales = document.createElement(`h3`);
   tituloDatosPersonales.innerHTML = `Datos Personales`
   contenedorUno.append(tituloDatosPersonales)
+  colDatos.append(contenedorUno)
+  
+  
 
   /* form datos personales */
   let formDatosPersonales = document.createElement(`form`);
   formDatosPersonales.action = `#`
   formDatosPersonales.method = `get`
   formDatosPersonales.className = `form-datos-personales p-3`
+  colDatos.append(formDatosPersonales)
 
   let labelCorrero = document.createElement(`label`)
   labelCorrero.setAttribute(`for`, `correo`)
@@ -587,6 +592,8 @@ const crearCheckOut = () => {
   inputCorreo.type = `email`
   inputCorreo.id = `correo`
   inputCorreo.className = `p-1 mb-3 w-100`
+  formDatosPersonales.append(labelCorrero)
+  formDatosPersonales.append(inputCorreo)
 
   let labelNombre = document.createElement(`label`)
   labelNombre.setAttribute(`for`, `nombre`)
@@ -596,6 +603,8 @@ const crearCheckOut = () => {
   inputNombre.type = `text`
   inputNombre.id = `nombre`
   inputNombre.className = `p-1 mb-3 w-100`
+  formDatosPersonales.append(labelNombre)
+  formDatosPersonales.append(inputNombre)
 
   let labelApellido = document.createElement(`label`)
   labelApellido.setAttribute(`for`, `apellido`)
@@ -605,6 +614,8 @@ const crearCheckOut = () => {
   inputApellido.type = `text`
   inputApellido.id = `apellido`
   inputApellido.className = `p-1 mb-3 w-100`
+  formDatosPersonales.append(labelApellido)
+  formDatosPersonales.append(inputApellido)
 
   let labelDni = document.createElement(`label`)
   labelDni.setAttribute(`for`, `dni`)
@@ -614,6 +625,8 @@ const crearCheckOut = () => {
   inputDni.type = `number`
   inputDni.id = `dni`
   inputDni.className = `p-1 mb-3 w-100`
+  formDatosPersonales.append(labelDni)
+  formDatosPersonales.append(inputDni)
 
   let labelTelefono = document.createElement(`label`)
   labelTelefono.setAttribute(`for`, `telefono`)
@@ -623,9 +636,12 @@ const crearCheckOut = () => {
   inputTelefono.type = `number`
   inputTelefono.id = `telefono`
   inputTelefono.className = `p-1 mb-3 w-100`
+  formDatosPersonales.append(labelTelefono)
+  formDatosPersonales.append(inputTelefono)
 
   let contenedorCheckbox = document.createElement(`div`)
   contenedorCheckbox.className = `d-flex mb-3`
+  formDatosPersonales.append(contenedorCheckbox)
   let inputPromociones = document.createElement(`input`)
   inputPromociones.type = `checkbox`
   inputPromociones.id = `promociones`
@@ -642,9 +658,8 @@ const crearCheckOut = () => {
   inputBoton1.type = `submit`
   inputBoton1.className = `btn btn-primary btn-continuar`
   contenedorBoton1.append(inputBoton1)
+  formDatosPersonales.append(contenedorBoton1)
 
-  /* appendeo del primer bloque */
-  
 
 
   /* titulo domicilio */
@@ -653,14 +668,137 @@ const crearCheckOut = () => {
   let tituloDomicilio = document.createElement(`h3`);
   tituloDomicilio.innerHTML = `Domicilio y entrega`
   contenedorDos.append(tituloDomicilio)
+  colDatos.append(contenedorDos)
 
-  /* form datos personales */
-  let formDomicilio = document.createElement(`form`);
-  formDomicilio.action = `#`
-  formDomicilio.method = `get`
-  formDomicilio.className = `form-datos-personales p-3`
+  /* form domicilio */
 
+  let formDatosDomicilio = document.createElement(`form`);
+  formDatosDomicilio.action = `#`
+  formDatosDomicilio.method = `get`
+  formDatosDomicilio.className = `form-datos-personales p-3`
+  colDatos.append(formDatosDomicilio)
 
+  let labelCodigoPostal = document.createElement(`label`)
+  labelCodigoPostal.setAttribute(`for`, `codigoPostal`)
+  labelCodigoPostal.className = `mb-1`
+  labelCodigoPostal.innerHTML = `Codigo Postal`
+  let inputCodigoPostal = document.createElement(`input`)
+  inputCodigoPostal.type = `number`
+  inputCodigoPostal.id = `codigoPostal`
+  inputCodigoPostal.className = `p-1 mb-3 w-100`
+  formDatosDomicilio.append(labelCodigoPostal)
+  formDatosDomicilio.append(inputCodigoPostal)
+
+  let labelCalle = document.createElement(`label`)
+  labelCalle.setAttribute(`for`, `calle`)
+  labelCalle.className = `mb-1`
+  labelCalle.innerHTML = `Calle`
+  let inputCalle = document.createElement(`input`)
+  inputCalle.type = `text`
+  inputCalle.id = `Calle`
+  inputCalle.className = `p-1 mb-3 w-100`
+  formDatosDomicilio.append(labelCalle)
+  formDatosDomicilio.append(inputCalle)
+
+  let contenedorNumeroPiso = document.createElement(`div`)
+  contenedorNumeroPiso.className = `d-flex`
+  formDatosDomicilio.append(contenedorNumeroPiso)
+
+  let contenedorNumero = document.createElement(`div`)
+  contenedorNumero.className = `dos-inputs`
+  contenedorNumeroPiso.append(contenedorNumero)
+ 
+  let labelNumeroCalle = document.createElement(`label`)
+  labelNumeroCalle.setAttribute(`for`, `numeroCalle`)
+  labelNumeroCalle.className = `mb-1`
+  labelNumeroCalle.innerHTML = `Numero`
+  let inputNumeroCalle = document.createElement(`input`)
+  inputNumeroCalle.type = `number`
+  inputNumeroCalle.id = `numeroCalle`
+  inputNumeroCalle.className = `p-1 mb-3 me-2`
+  contenedorNumero.append(labelNumeroCalle, inputNumeroCalle)
+
+  let contenedorPiso = document.createElement(`div`)
+  contenedorPiso.className = `dos-inputs`
+  contenedorNumeroPiso.append(contenedorPiso)
+
+  let labelPiso = document.createElement(`label`)
+  labelPiso.setAttribute(`for`, `piso`)
+  labelPiso.className = `mb-1`
+  labelPiso.innerHTML = `Piso / Departamento`
+  let inputPiso = document.createElement(`input`)
+  inputPiso.type = `text`
+  inputPiso.id = `piso`
+  inputPiso.className = `p-1 mb-3 me-2`
+  contenedorPiso.append(labelPiso, inputPiso)
+
+  let labelProvincia = document.createElement(`label`)
+  labelProvincia.setAttribute(`for`, `provincia`)
+  labelProvincia.className = `mb-1`
+  labelProvincia.innerHTML = `Provincia`
+  let inputProvincia = document.createElement(`input`)
+  inputProvincia.type = `text`
+  inputProvincia.id = `provincia`
+  inputProvincia.className = `p-1 mb-3 w-100`
+  formDatosDomicilio.append(labelProvincia, inputProvincia)
+
+  let labelCiudad = document.createElement(`label`)
+  labelCiudad.setAttribute(`for`, `ciudad`)
+  labelCiudad.className = `mb-1`
+  labelCiudad.innerHTML = `Ciudad`
+  let inputCiudad = document.createElement(`input`)
+  inputCiudad.type = `text`
+  inputCiudad.id = `ciudad`
+  inputCiudad.className = `p-1 mb-3 w-100`
+  formDatosDomicilio.append(labelCiudad, inputCiudad)
+
+  let tipoEntrega = document.createElement(`h4`)
+  tipoEntrega.innerHTML = `Elige tipo de entrega`
+  tipoEntrega.className = `mb-3 h5`
+  formDatosDomicilio.append(tipoEntrega)
+
+  let contenedorRadio1 = document.createElement(`div`)
+  contenedorRadio1.className =`d-flex`
+  let envioDomicilio = document.createElement(`input`)
+  envioDomicilio.className = `d-block me-2`
+  envioDomicilio.type = `radio`
+  envioDomicilio.value = `entrega`
+  envioDomicilio.value = `envio a domicilio`
+  let spanDomicilio = document.createElement(`span`)
+  spanDomicilio.innerHTML = `Envio a domicilio`
+  contenedorRadio1.append(envioDomicilio, spanDomicilio)
+  formDatosDomicilio.append(contenedorRadio1)
+
+  let contenedorRadio2 = document.createElement(`div`)
+  contenedorRadio2.className =`d-flex`
+  let envioLocal = document.createElement(`input`)
+  envioLocal.className = `d-block me-2`
+  envioLocal.type = `radio`
+  envioLocal.value = `entrega`
+  envioLocal.value = `envio a Local`
+  let spanLocal = document.createElement(`span`)
+  spanLocal.innerHTML = `Envio a Local`
+  contenedorRadio2.append(envioLocal, spanLocal)
+  formDatosDomicilio.append(contenedorRadio2)
+
+  let contenedorBoton2 = document.createElement(`div`)
+  contenedorBoton2.className = `d-flex justify-content-end`
+  let inputBoton2 = document.createElement(`input`)
+  inputBoton2.value = `Continuar`
+  inputBoton2.type = `submit`
+  inputBoton2.className = `btn btn-primary btn-continuar`
+  contenedorBoton2.append(inputBoton2)
+  formDatosDomicilio.append(contenedorBoton2)
+
+  /* titulo pago */
+  let contenedorTres = document.createElement(`div`);
+  contenedorTres.className = `p-3 text-white titulo-pasos mb-2`
+  let tituloPago = document.createElement(`h3`);
+  tituloPago.innerHTML = `Pago`
+  contenedorTres.append(tituloPago)
+  colDatos.append(contenedorTres)
+
+  
   
 
 
@@ -677,8 +815,18 @@ const crearCheckOut = () => {
   /* col-resumen */
   let colResumen = document.createElement(`div`);
   colResumen.className = `col-12 col-md-4 px-4 resumen-productos`
+
+  /* appendeo estructura */
+  document.body.append(overlay)
+  overlay.append(contenedor)
+  contenedor.append(fila)
+  fila.append(colDatos, colResumen)
+
+
+
 }
 
+crearCheckOut()
 
 /* PRUEBAS LOCAL STORAGE */
 
