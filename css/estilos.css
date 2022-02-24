@@ -530,7 +530,7 @@ footer input[type="submit"]:hover {
     flex-direction: column;
 }
 
-.form-datos-personales input {
+.form-datos-personales input, select {
     margin-top: 8px;
     border: #dfdfdf 1px solid;
     outline: 0;

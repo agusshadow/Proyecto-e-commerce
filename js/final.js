@@ -427,6 +427,7 @@ const crearBotonesCarrito = () => {
   btnComprar.className = `btn btn-primary d-block col-11 col-md-8 col-lg-6 col-xl-4 mx-auto border-0`;
   btnComprar.style.backgroundColor = `#0099CC`;
   btnComprar.innerHTML = `Comprar`;
+  btnComprar.addEventListener(`click`, crearCheckOut)
   divResumen.append(contenedorBtn, btnComprar);
   modalCarrito.append(divResumen);
   btnVaciar.addEventListener(`click`, (e) => {
@@ -552,6 +553,13 @@ icnCarrito.addEventListener(`click`, (e) => {
 /* CHECKOUT */
 
 const crearCheckOut = () => {
+
+  let estaCarrito = document.querySelector(`.carrito`);
+ 
+ 
+  if (estaCarrito) {
+    estaCarrito.remove()
+  }
 
   /* overlay */
   let overlay = document.createElement(`div`);
@@ -798,15 +806,102 @@ const crearCheckOut = () => {
   contenedorTres.append(tituloPago)
   colDatos.append(contenedorTres)
 
-  
-  
+  /* form pago*/
+
+  let formPago = document.createElement(`form`);
+  formPago.action = `#`
+  formPago.method = `get`
+  formPago.className = `form-datos-personales p-3`
+  colDatos.append(formPago)
+
+  let labelNumeroTarjeta = document.createElement(`label`)
+  labelNumeroTarjeta.setAttribute(`for`, `numeroTarjeta`)
+  labelNumeroTarjeta.className = `mb-1`
+  labelNumeroTarjeta.innerHTML = `Numero Tarjeta`
+  let inputNumeroTarjeta = document.createElement(`input`)
+  inputNumeroTarjeta.type = `text`
+  inputNumeroTarjeta.id = `numeroTarjeta`
+  inputNumeroTarjeta.className = `p-1 mb-3 w-100`
+  formPago.append(labelNumeroTarjeta, inputNumeroTarjeta)
+
+  let cuotas = document.createElement(`label`)
+  cuotas.innerHTML = `Cuotas`
+  formPago.append(cuotas)
+
+  let SelectCuotas = document.createElement(`select`)
+  SelectCuotas.className = `p-1 mb-3 w-100`
+  let cuota1 = document.createElement(`option`)
+  cuota1.value = `1`
+  cuota1.innerHTML = `1`
+  let cuota3 = document.createElement(`option`)
+  cuota3.value = `3`
+  cuota3.innerHTML = `3`
+  let cuota6 = document.createElement(`option`)
+  cuota6.value = `6`
+  cuota6.innerHTML = `6`
+  let cuota12 = document.createElement(`option`)
+  cuota12.value = `12`
+  cuota12.innerHTML = `12`
+  SelectCuotas.append(cuota1, cuota3, cuota6, cuota12)
+  formPago.append(SelectCuotas)
 
 
+  let labelFecha = document.createElement(`label`)
+  labelFecha.className = `mb-1`
+  labelFecha.innerHTML = `Fecha de vencimiento`
 
+  let contenedorFecha = document.createElement(`div`)
+  contenedorFecha.className = `d-flex`
+  formDatosDomicilio.append(contenedorFecha)
 
+  let contenedorMes = document.createElement(`div`)
+  contenedorMes.className = `dos-inputs`
+  contenedorFecha.append(contenedorMes)
+ 
+  let inputFecha = document.createElement(`input`)
+  inputFecha.type = `number`
+  inputFecha.className = `p-1 mb-3 me-2`
+  contenedorMes.append(inputFecha)
 
+  let contenedorAno = document.createElement(`div`)
+  contenedorAno.className = `dos-inputs`
+  contenedorFecha.append(contenedorAno)
 
+  let inputAno = document.createElement(`input`)
+  inputAno.type = `number`
+  inputAno.className = `p-1 mb-3 me-2`
+  contenedorAno.append(inputAno)
 
+  formPago.append(labelFecha, contenedorFecha)
+
+  let labelCodigoSeguridad = document.createElement(`label`)
+  labelCodigoSeguridad.setAttribute(`for`, `codigoSeguridad`)
+  labelCodigoSeguridad.className = `mb-1`
+  labelCodigoSeguridad.innerHTML = `Codigo de seguridad`
+  let inputCodigoSeguridad = document.createElement(`input`)
+  inputCodigoSeguridad.type = `number`
+  inputCodigoSeguridad.id = `codigoSeguridad`
+  inputCodigoSeguridad.className = `p-1 mb-3 w-100`
+  formPago.append(labelCodigoSeguridad, inputCodigoSeguridad)
+
+  let labelDniTarjeta = document.createElement(`label`)
+  labelDniTarjeta.setAttribute(`for`, `dniTarjeta`)
+  labelDniTarjeta.className = `mb-1`
+  labelDniTarjeta.innerHTML = `Dni`
+  let inputDniTarjeta = document.createElement(`input`)
+  inputDniTarjeta.type = `number`
+  inputDniTarjeta.id = `dniTarjeta`
+  inputDniTarjeta.className = `p-1 mb-3 w-100`
+  formPago.append(labelDniTarjeta, inputDniTarjeta)
+
+  let contenedorBoton3 = document.createElement(`div`)
+  contenedorBoton3.className = `d-flex justify-content-end`
+  let inputBoton3 = document.createElement(`input`)
+  inputBoton3.value = `Continuar`
+  inputBoton3.type = `submit`
+  inputBoton3.className = `btn btn-primary btn-continuar`
+  contenedorBoton3.append(inputBoton3)
+  formPago.append(contenedorBoton3)
 
 
 
@@ -815,6 +910,61 @@ const crearCheckOut = () => {
   /* col-resumen */
   let colResumen = document.createElement(`div`);
   colResumen.className = `col-12 col-md-4 px-4 resumen-productos`
+
+  let filaResumen = document.createElement(`div`);
+  filaResumen.className = `row row-cols-1 overflow-auto py-2`
+  colResumen.append(filaResumen)
+
+
+  
+  carrito.ids.forEach((idProducto, indice) => {
+    let productoCantidad = carrito.cant[indice];
+    let productoCarrito = productos.filter(
+      (producto) => producto.id == idProducto
+    )[0];
+
+   let contenedorCard = document.createElement(`div`);
+   contenedorCard.className = `card my-2`
+   let contenedorFluid = document.createElement(`div`);
+   contenedorFluid.className = `container-fluid`
+   let contenedorFilaProducto = document.createElement(`div`);
+   contenedorFilaProducto.className = `row` 
+   contenedorCard.append(contenedorFluid)
+   contenedorFluid.append(contenedorFilaProducto)
+
+   let col1 = document.createElement(`div`);
+   col1.className = `col-5 d-flex justify-content-center align-items-center`
+   let imgProducto = document.createElement(`img`);
+   imgProducto.src = `imagenes/productos/${productoCarrito.img}`
+   imgProducto.className = `img-fluid rounded-start`
+   imgProducto.alt = `${productoCarrito.nombre}`
+   col1.append(imgProducto)
+
+   let col2 = document.createElement(`div`);
+   col2.className = `col-7`
+   let contenedorBody = document.createElement(`div`);
+   contenedorBody.className =`card-body`
+   col2.append(contenedorBody)
+
+   let tituloProducto = document.createElement(`h5`);
+   tituloProducto.innerHTML = `${productoCarrito.nombre}`
+   tituloProducto.className = `card-title`
+   let precioProducto = document.createElement(`span`);
+   precioProducto.innerHTML = `${productoCarrito.precio}`
+   precioProducto.className = `me-2`
+   let cantidadProducto = document.createElement(`span`);
+   cantidadProducto.innerHTML = `x ${productoCantidad}`
+
+    contenedorBody.append(tituloProducto, precioProducto, cantidadProducto)
+
+ 
+
+    contenedorFilaProducto.append(col1, col2)
+    filaResumen.append(contenedorCard)
+   
+  });
+
+
 
   /* appendeo estructura */
   document.body.append(overlay)
@@ -826,11 +976,11 @@ const crearCheckOut = () => {
 
 }
 
-crearCheckOut()
+
+
+
 
 /* PRUEBAS LOCAL STORAGE */
-
-console.log(`Info local storage`);
 
 let infoLocal = JSON.stringify(carrito)
 console.log(infoLocal);
@@ -844,3 +994,4 @@ const cargarInfoCarrito = (info) => {
     localStorage.info = JSON.stringify(info)
   }
 }
+
