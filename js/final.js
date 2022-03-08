@@ -433,7 +433,7 @@ selectFiltro.addEventListener(`change`, (e) => {
   })
   let contenedorImg = document.createElement(`div`)
   let img = document.createElement(`img`)
-  img.src = `imagenes/publicidad/publicidad-${e.target.value}.png`
+  img.src = `localhost/imagenes/publicidad/publicidad-${e.target.value}.png`
   img.alt = `imagen publicitaria`
   contenedorImg.append(img)
   contenedorPublicidad.append(cerrar, contenedorImg)
