@@ -408,6 +408,8 @@ selectFiltro.addEventListener(`change`, (e) => {
     crearProductos(productosFiltrados);
   }
 
+  console.log(e.target.value);
+
   /* crear publicidad al cambiar el valor del filtro */
 
   if (e.target.value != `todos`) {
@@ -433,7 +435,7 @@ selectFiltro.addEventListener(`change`, (e) => {
   })
   let contenedorImg = document.createElement(`div`)
   let img = document.createElement(`img`)
-  img.src = `localhost/imagenes/publicidad/publicidad-${e.target.value}.png`
+  img.src = `imagenes/publicidad/publicidad-${e.target.value}.png`
   img.alt = `imagen publicitaria`
   contenedorImg.append(img)
   contenedorPublicidad.append(cerrar, contenedorImg)
@@ -497,7 +499,7 @@ const crearBotonesCarrito = () => {
     let notiCarrito = document.querySelector(`.notificacion-carrito`);
     notiCarrito.innerHTML = 0;
     notiCarrito.style.opacity = 0;
-    totalMostrar.innerHTML = `$ 0`;
+    total.innerHTML = `$ 0`;
   });
 };
 
