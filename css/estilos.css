@@ -2,7 +2,6 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    /* outline: auto; */
 }
 
 ::-webkit-scrollbar {
@@ -174,6 +173,13 @@ body {
     z-index: 99999999;
 }
 
+.div-resumen {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
 .borrar {
     text-decoration: none;
     background-image: url(../imagenes/iconografia/basura.svg);
@@ -190,7 +196,6 @@ body {
     transform: translate(-50%, -50%);
 }
 
-/* NOTIFICACION AGREGADO */
 
 .notificacion-agregado {
     background-color: rgb(41, 199, 41);
@@ -215,6 +220,17 @@ body {
     margin: auto 0;
 }
 
+.total-checkout {
+    background-color: white;
+    color: #0099CC;
+    font-weight: 600;
+    text-align: center;
+}
+
+.no-hay-productos {
+    color:#aaa9a9;
+}
+
 @keyframes notificacion {
     0% {
         right: -700px;
@@ -230,14 +246,10 @@ body {
     }
 }
 
-/* TITULO SECCION */
-
 .titulo-seccion h2{
     background-color: #00CCFF;
     border-bottom: 5px solid #0099CC;
 }
-
-/* PRECIO PRODUCTO CATALOGO */
 
 .precio {
     color: #0099CC;
@@ -310,13 +322,9 @@ footer input[type="submit"]:hover {
     color: white;
 }
 
-/* MENU DESPLEGABLE */
-
 .offcanvas {
     width: 70%;
 }
-
-/* MODAL PRODUCTO */
 
 .overlay-modal {
     height: 100vh;
@@ -435,8 +443,6 @@ footer input[type="submit"]:hover {
     background-image: url(../imagenes/iconografia/localizacion.svg);
 }
 
-/* botones compra */
-
 .btn-agregar-carrito {
     background-color: #0099CC;
     color: white;
@@ -446,11 +452,6 @@ footer input[type="submit"]:hover {
 }
 
 .btn-agregar-carrito:hover {
-    /* background-color: #09d44d;
-    transition: 0.3s all;
-    box-shadow: 0px 0px 18px 3px #57da83;
-    -webkit-box-shadow: 0px 0px 18px 3px #57da83;
-    -moz-box-shadow: 0px 0px 18px 3px #57da83; */
     background-color: #047297;
     transition: 0.3s all;
 }
@@ -464,18 +465,10 @@ footer input[type="submit"]:hover {
 }
 
 .btn-comprar-ahora:hover {
-    /* background-color: #db0d4b;
-    color: white;
-    transition: 0.3s all;
-    box-shadow: 0px 0px 18px 3px #eb4e7d;
-    -webkit-box-shadow: 0px 0px 18px 3px #eb4e7d;
-    -moz-box-shadow: 0px 0px 18px 3px #eb4e7d; */
     background-color: #5dcaee;
     transition: 0.3s all;
     color: white;
 }
-
-/* VENTANA MODAL PUBLICIDAD */
 
 .overlay-publicidad {
     background-color: rgba(0,0,0,0.6);
@@ -516,10 +509,27 @@ footer input[type="submit"]:hover {
     padding: 10px;
 }
 
-/* VENTANA CHECKOUT*/
-
 .titulo-pasos {
     background-color: #00CCFF;
+}
+
+.titulo-pasos-inactivo {
+    background-color: rgb(5, 159, 197);
+    position: relative;
+}
+
+
+.verificado-checkout::before {
+  content: "";
+  background-image: url(../imagenes/iconografia/check.svg);
+  width: 30px;
+  height: 30px;
+  background-size: 30px;
+  background-position: center center;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .ventana-datos-personales {
@@ -559,8 +569,6 @@ footer input[type="submit"]:hover {
     
 }
 
-/* errores */
-
 .error {
     border: 3px solid red;
     border-radius: 5px;
@@ -585,8 +593,6 @@ footer input[type="submit"]:hover {
     width: 96%;
 }
 
-/* VENTANA COMPRA CONFIRMADA */
-
 .compra-confirmada {
     position: fixed;
     top: 0;
@@ -596,10 +602,6 @@ footer input[type="submit"]:hover {
     background-color: #0CBE64;
     z-index: 9999;
 }
-
-
-
-/* MEDIAS */
 
 @media (min-width: 800px) {
     .offcanvas {
