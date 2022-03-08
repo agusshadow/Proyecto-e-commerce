@@ -126,6 +126,7 @@ nuestrosProductos.addEventListener(`click`, (e) => {
 
 let logo = document.querySelector(`.logo`)
 logo.addEventListener(`click`, e => {
+  console.log(`te re hackie puto`);
   e.preventDefault()
   modalCarrito.remove()
   let modalProducto = document.querySelector(`.overlay-modal-producto`)
