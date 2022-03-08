@@ -38,7 +38,7 @@
         <div class="offcanvas-body">
           <div class="list-group">
             <ul class="list-unstyled">
-              <li><a class="list-group-item border-0" href="#productos">Nuestros productos</a></li>
+              <li id="nuestrosProductos"><a class="list-group-item border-0" href="#catalogo-productos">Nuestros productos</a></li>
             </ul>
           </div>
         </div>
@@ -58,13 +58,13 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="3000">
-            <img class="img-fluid w-100" src="imagenes/slider-banner/slider-1.jpg" alt="fondo de una piscina con un inflable">
+            <img class="img-fluid w-100" src="imagenes/slider-banner/slider-1.png" alt="fondo de una piscina con un inflable">
           </div>
           <div class="carousel-item" data-bs-interval="3000">
-            <img class="img-fluid w-100" src="imagenes/slider-banner/slider-2.jpg" alt="fondo de una piscina con un inflable">
+            <img class="img-fluid w-100" src="imagenes/slider-banner/slider-2.png" alt="fondo de una piscina con un inflable">
           </div>
           <div class="carousel-item" data-bs-interval="3000">
-            <img class="img-fluid w-100" src="imagenes/slider-banner/slider-3.jpg" alt="fondo de una piscina con un inflable">
+            <img class="img-fluid w-100" src="imagenes/slider-banner/slider-3.png" alt="fondo de una piscina con un inflable">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -137,215 +137,6 @@
       </div>
     </footer>
   </div>
-
-  <!-- <div class="overlay-modal">
-    <div class="container-lg overflow-auto contenedor-datos-personales">
-      <div class="row">
-        <div class="col-12 col-md-8 p-0">
-
-          <div class="p-3 text-white titulo-pasos mb-2">
-            <h3>Datos peronsales</h3>
-          </div>
-
-          <form action="#" method="get" class="form-datos-personales p-3">
-
-            <label class="mb-1" for="correo">Correo</label>
-            <input class="p-1 mb-3 w-100" type="email" id="correo">
-            
-          
-            <label class="mb-1" for="nombre">Nombre</label>
-            <input class="p-1 mb-3 w-100" type="text" id="nombre">
-
-            <label class="mb-1" for="apellido">Apellido</label>
-            <input class="p-1 mb-3 w-100" type="text" id="apellido">
-              
-  
-            <label class="mb-1" for="dni">DNI</label>
-            <input class="p-1 mb-3 w-100" type="number" id="dni">
-            
-            <label class="mb-1" for="telefono">Telefono</label>
-            <input class="p-1 mb-3 w-100" type="number" id="telefono">
-            
-            <div class="d-flex mb-3">
-              <input class="my-auto me-2" type="checkbox" id="check-mail">
-              <label for="check-mail">Quiero recibir promociones por mail</label>
-            </div>
-
-            <div class="d-flex justify-content-end">
-              <input class="btn btn-primary btn-continuar" type="submit" value="Continuar">
-            </div>
-
-          </form>
-
-          <div class="p-3 text-white titulo-pasos mb-2">
-            <h3>Domicilio y entrega</h3>
-          </div>
-
-          <form action="#" class="form-datos-personales p-3">
-
-            <label class="mb-1" for="postal">Codigo postal</label>
-            <input class="p-1 mb-3 w-100" type="number" id="postal">
-
-            <label class="mb-1" for="calle">Calle</label>
-            <input class="p-1 mb-3 w-100" type="text" id="calle">
-
-            <div class="d-flex">
-              <div class="dos-inputs">
-                <label class="mb-1" for="numero">Numero</label>
-                <input class="p-1 mb-3 me-2" type="number" id="numero">
-              </div>
-              
-              <div class="dos-inputs">
-                <label class="mb-1" for="piso">Piso / Departamento</label>
-                <input class="p-1 mb-3" type="text" id="piso">
-              </div>
-            </div>
-
-            <label class="mb-1" for="provincia">Provincia</label>
-            <input class="p-1 mb-3 w-100" type="text" id="provincia">
-
-            <label class="mb-1" for="ciudad">Ciudad</label>
-            <input class="p-1 mb-4 w-100" type="text" id="ciudad">
-
-            <h4 class="mb-3 h5">Elige tipo de entrega</h4>
-
-            <div class="d-flex">
-              <input class="d-block me-2" type="radio" name="entrega" value="envio a domicilio">
-              <span>Envio a domicilio</span>
-            </div>
-            <div class="d-flex">
-              <input class="d-block me-2" type="radio" name="entrega" value="retiro en sucursal">
-              <span>Retiro en sucursal</span>
-            </div>
-
-            <div class="d-flex justify-content-end">
-              <input class="btn btn-primary btn-continuar" type="submit" value="Continuar">
-            </div>
-
-          </form>
-
-          <div class="p-3 text-white titulo-pasos mb-2">
-            <h3>Pago</h3>
-          </div>
-
-          <form class="form-datos-personales p-3">
-
-            <label class="mb-1" for="numero-tarjeta">Numero</label>
-            <input class="p-1 mb-3 w-100" type="number" id="numero-tarjeta">
-
-            <label class="mb-1" for="cuotas">Cuotas</label>
-            <input class="p-1 mb-3 w-100" type="text" id="cuotas">
-
-            <label class="mb-1" for="nombre-apellido">Nombre y apellido</label>
-            <input class="p-1 mb-3 w-100" type="text" id="nombre-apellido">
-
-            <label class="mb-1">Fecha de vencimiento</label>
-            <div class="d-flex">
-              <div class="dos-inputs">
-                <input class="p-1 mb-3 me-2" type="number">
-              </div>
-              <div class="dos-inputs">
-                <input class="p-1 mb-3" type="number">
-              </div>
-            </div>
-
-            <label class="mb-1" for="codigo">Codigo de seguridad</label>
-            <input class="p-1 mb-3" type="text" id="codigo">
-
-            <label class="mb-1" for="dni-compra">DNI</label>
-            <input class="p-1 mb-3 w-100" type="text" id="dni-compra">
-
-            <div class="d-flex justify-content-end">
-              <input class="btn btn-primary btn-continuar" type="submit" value="Finalizar compra">
-            </div>
-
-          </form>
-
-
-        </div>
-        <div class="col-12 col-md-4 px-4 resumen-productos">
-       
-          <div class="row row-cols-1 sticky-top py-2">
-        
-            <div class="card my-2">
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-5 d-flex justify-content-center align-items-center">
-                    <img src="imagenes/productos/boya-grande.png" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-7">
-                    <div class="card-body">
-                      <h5 class="card-title">Boya</h5> 
-                      <span class="d-block">$800</span>
-                      <span>x 5</span>  
-                      <a href="#" class="borrar">borrar</a>     
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card my-2">
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-5 d-flex justify-content-center align-items-center">
-                    <img src="imagenes/productos/boya-grande.png" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-7">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5> 
-                      <span>$800</span>
-                      <span>x 5</span>  
-                      <a href="#" class="borrar">borrar</a>      
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card my-2">
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-5 d-flex justify-content-center align-items-center">
-                    <img src="imagenes/productos/boya-grande.png" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-7">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5> 
-                      <span>$800</span>
-                      <span>x 5</span>      
-                      <a href="#" class="borrar">borrar</a>  
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card my-2">
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-5 d-flex justify-content-center align-items-center">
-                    <img src="imagenes/productos/boya-grande.png" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-7">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5> 
-                      <span>$800</span>
-                      <span>x 5</span>
-                      <a href="#" class="borrar">borrar</a>         
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-  <!-- <div class="compra-confirmada d-flex justify-content-center align-items-center">
-    <img src="imagenes/iconografia/check.gif" alt="" class="">
-  </div> -->
-
 
 
 

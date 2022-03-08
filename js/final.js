@@ -16,7 +16,7 @@ let productos = [
     nombre: `Manguera flotante`,
     img: `manguera-grande.png`,
     precio: 240,
-    descripcion: `manguera para piletas`,
+    descripcion: `Manguera Corrugada Flotante 1 " X 10mts Pileta Piscina Santa Rita Rollo de manguera corrugada flotante Diámetro: 1"=25,4mm Largo 10 Metros Material Pvc de Alto Impacto Tratamiento UV Ideal Para La Carga r descarga de Piletas y Piscinas También Para La Limpieza Con Barre fondo.`,
     categoria: `accesorios`,
   },
   {
@@ -24,7 +24,7 @@ let productos = [
     nombre: `Sacahojas`,
     img: `sacahojas-grande.png`,
     precio: 700,
-    descripcion: `sacahojas para limpiar las hojas de tu pileta`,
+    descripcion: `El sacahojas plano (17 mm) posee una red plana con un mango de 5 secciones (50 cm c/sección), que permite ser utilizado de acuerdo a tu necesidad. Está pensado para recolectar impurezas cercanas a la superficie del agua de la piscina.`,
     categoria: `accesorios`,
   },
   {
@@ -32,7 +32,7 @@ let productos = [
     nombre: `Limpiafondo`,
     img: `limpiafondo-grande.png`,
     precio: 800,
-    descripcion: `limpiafondo`,
+    descripcion: `Limpiafondo Vulcano de 8 ruedas fijas. Para piletas de hormigón o fibra. Limpiafondos flexible de 8 ruedas fijas, de óptimo desempeño ya que se adapta a las pequeñas irregularidades de las superficie. Su diseño le aporta resistencia a los impactos. Este producto es uno de los más buscados por su versatilidad y calidad constructiva.`,
     categoria: `accesorios`,
   },
   {
@@ -40,7 +40,7 @@ let productos = [
     nombre: `Regulador de ph`,
     img: `phmenos-grande.png`,
     precio: 240,
-    descripcion: `regulador de ph`,
+    descripcion: `PH Menos Nataclor disminuye el nivel de pH del agua cuando está alto. El ideal es entre 7,2 y 7,6. Generalmente necesario para aguas duras. Puede usarse en forma combinada con todo tipo de cloro y es apto para todo tipo de piscinas. El PH debe medirse antes de aplicar el cloro ya que optimiza el rendimiento del mismo. Se vierte en el agua de la piscina previamente diluido en un balde con agua, sin presencia de bañistas. Luego efectuar una recirculación completa del agua de la pileta.`,
     categoria: `accesorios`,
   },
   {
@@ -48,7 +48,7 @@ let productos = [
     nombre: `Boya`,
     img: `boya-grande.png`,
     precio: 700,
-    descripcion: `boya para insertar pastillas de cloro`,
+    descripcion: `Boya Dosificadora Cloro Vulcano Regulación Piscinas Pileta Boya dosificadora de cloro modelo Max, para pastillas de 50 y 200 grs. Permite regular el intercambio de cloro, mediante un regulador.`,
     categoria: `accesorios`,
   },
   {
@@ -56,7 +56,7 @@ let productos = [
     nombre: `Boya Satélite`,
     img: `boya-satelite-grande.png`,
     precio: 700,
-    descripcion: `boya para insertar pastillas de cloro`,
+    descripcion: `Boya SATELITE para pastillas de cloro de 250grs.`,
     categoria: `accesorios`,
   },
   {
@@ -64,7 +64,7 @@ let productos = [
     nombre: `Bidón de cloro`,
     img: `cloro-grande.png`,
     precio: 800,
-    descripcion: `bidon de cloro`,
+    descripcion: `bidon de cloro de 10l`,
     categoria: `cloro`,
   },
   {
@@ -72,7 +72,7 @@ let productos = [
     nombre: `Prende fuego`,
     img: `prende-fuego-grande.png`,
     precio: 800,
-    descripcion: `producto para prender fuego`,
+    descripcion: `Pastillas para encender fuego x 12 u.`,
     categoria: `carboneria`,
   },
   {
@@ -96,7 +96,7 @@ let productos = [
     nombre: `Bolsa de carbón`,
     img: `carbon-grande.png`,
     precio: 800,
-    descripcion: `bolsa de carbón`,
+    descripcion: `Bolsa de carbon grande`,
     categoria: `carboneria`,
   },
   {
@@ -104,17 +104,40 @@ let productos = [
     nombre: `Motor`,
     img: `motor-grande.png`,
     precio: 14500,
-    descripcion: `motor`,
+    descripcion: `Electrobomba Autocebante Vulcano BAP 075 3/4 HP: Bomba autocebante BAP 075 Vulcano de 0.75 HP de potencia y tensión monofásica de 220V-50HZ. Desarrollada para responder a las más altas exigencias ofrece un óptimo rendimiento, convirtiéndola en una excelente opción para su pileta. Dispone de cuerpo autocebante reforzado y pre-filtro incorporado, con canasto atrapa hojas de gran tamaño y tapa de rápida apertura con un ¼ de giro. Las conexiones con uniones dobles; incluye 2 bujes con rosca hembra 1 ½” para caños de polipropileno y 2 bujes lisos de Ø 50 para pegar caños de PVC.`,
     categoria: `accesorios`,
   },
 ];
+
+let nuestrosProductos = document.querySelector(`#nuestrosProductos`)
+console.log(nuestrosProductos);
+nuestrosProductos.addEventListener(`click`, (e) => {
+  modalCarrito.remove()
+  let modalProducto = document.querySelector(`.overlay-modal-producto`)
+  let modal = document.querySelector(`.overlay-modal`)
+  if (modalProducto) {
+    modalProducto.remove()
+  }
+  if (modal) {
+    modal.remove()
+    console.log(modal);
+  }
+})
 
 let logo = document.querySelector(`.logo`)
 logo.addEventListener(`click`, e => {
   e.preventDefault()
   modalCarrito.remove()
-  let modalProducto = document.querySelector(`.overlay-modal`)
-  modalProducto.remove()
+  let modalProducto = document.querySelector(`.overlay-modal-producto`)
+  let modal = document.querySelector(`.overlay-modal`)
+  if (modalProducto) {
+    modalProducto.remove()
+  }
+  if (modal) {
+    modal.remove()
+    console.log(modal);
+  }
+
 })
 
 /* CARRITO */
@@ -126,6 +149,8 @@ let carrito = {
 };
 
 /* AGREGAR PRODUCTO */
+
+let noti = true
 
 const agregarProducto = (e) => {
   let id = parseFloat(e.target.dataset.id);
@@ -147,23 +172,31 @@ const agregarProducto = (e) => {
   notiCarrito.style.opacity = `1`;
   notiCarrito.innerHTML = cantProductos;
 
-  setTimeout(() => {
-    let notificacion = document.querySelector(`.notificacion-agregado`);
-    if (notificacion === null) {
-      let div = document.createElement(`div`);
-      div.className = `notificacion-agregado`;
-      let span = document.createElement(`span`);
-      span.innerHTML = `Producto agregado`;
-      let img = document.createElement(`img`);
-      img.src = `imagenes/iconografia/check.svg`;
-      img.className = `ms-2 verificado`;
-      div.append(span, img);
-      document.body.append(div);
-      setTimeout(() => {
-        div.remove();
-      }, 2000);
-    }
-  }, 200);
+  console.log(noti);
+
+  if (noti === true) {
+    setTimeout(() => {
+      let notificacion = document.querySelector(`.notificacion-agregado`);
+      if (notificacion === null) {
+        let div = document.createElement(`div`);
+        div.className = `notificacion-agregado`;
+        let span = document.createElement(`span`);
+        span.innerHTML = `Producto agregado`;
+        let img = document.createElement(`img`);
+        img.src = `imagenes/iconografia/check.svg`;
+        img.className = `ms-2 verificado`;
+        img.alt = `icono verificado`
+        div.append(span, img);
+        document.body.append(div);
+        setTimeout(() => {
+          div.remove();
+        }, 2000);
+      }
+    }, 200);
+  }
+
+  noti = true
+  
 };
 
 let icnCarrito = document.querySelector(`#icncarrito`);
@@ -223,7 +256,7 @@ const crearProductos = (productos) => {
       /* genero la ventana modal del producto */
 
       let overlay = document.createElement(`div`);
-      overlay.className = `overlay-modal`
+      overlay.className = `overlay-modal-producto`
 
       let contenedor = document.createElement(`div`);
       contenedor.className = `contenedor-modal-producto container-lg pt-3 pb-3 overflow-auto`
@@ -236,7 +269,7 @@ const crearProductos = (productos) => {
       volver.className = `mb-3 text-decoration-none text-secondary`
       volver.addEventListener(`click`, e => {
         e.preventDefault()
-        let Modal = document.querySelector(`.overlay-modal`)
+        let Modal = document.querySelector(`.overlay-modal-producto`)
         Modal.remove()
       })
 
@@ -245,6 +278,7 @@ const crearProductos = (productos) => {
       let imgProducto = document.createElement(`img`); 
       imgProducto.src = `imagenes/productos/${productoFiltrado.img}`
       imgProducto.className = `img-fluid col-12 col-md-8`
+      imgProducto.alt = `imagen del producto`
       columna1.append(imgProducto)
 
       let columna2 = document.createElement(`div`); 
@@ -300,17 +334,28 @@ const crearProductos = (productos) => {
 
       let agregarCarrito = document.createElement(`button`)
       agregarCarrito.innerHTML = `Agregar al carrito`
-      agregarCarrito.className = `btn-agregar-carrito d-block mt-4`
+      agregarCarrito.className = `btn-comprar-ahora  d-block mt-4`
       agregarCarrito.dataset.id = `${productoFiltrado.id}`;
       agregarCarrito.dataset.precio = `${productoFiltrado.precio}`;
       agregarCarrito.dataset.cat = `${productoFiltrado.categoria}`;
       agregarCarrito.addEventListener(`click`, agregarProducto);
-      let agregarFavorito = document.createElement(`button`)
-      agregarFavorito.innerHTML = `Agregar a favoritos`
-      agregarFavorito.className = `btn-agregar-favoritos mt-3`
+      let comprarAhora = document.createElement(`button`)
+      comprarAhora.innerHTML = `Comprar ahora`
+      comprarAhora.className = `btn-agregar-carrito mt-3`
+      comprarAhora.dataset.id = `${productoFiltrado.id}`;
+      comprarAhora.dataset.precio = `${productoFiltrado.precio}`;
+      comprarAhora.dataset.cat = `${productoFiltrado.categoria}`;
+      comprarAhora.addEventListener(`click`, (producto) => {
+        noti = false
+        agregarProducto(producto)
+        crearCheckOut() 
+        
+        console.log(noti);
+      })
+      
 
       contenedorInfo.append(cuotas, retiro, envio, garantia)
-      columna2.append(nombreProducto, categoriaProducto, precioProducto, contenedorInfo, agregarCarrito, agregarFavorito)
+      columna2.append(nombreProducto, categoriaProducto, precioProducto, contenedorInfo,comprarAhora, agregarCarrito)
       fila1.append(volver, columna1, columna2)
 
 
@@ -365,7 +410,8 @@ selectFiltro.addEventListener(`change`, (e) => {
 
   /* crear publicidad al cambiar el valor del filtro */
 
-  let overlayPublicidad = document.createElement(`div`)
+  if (e.target.value != `todos`) {
+    let overlayPublicidad = document.createElement(`div`)
   overlayPublicidad.className = `overlay-publicidad`
   let contenedorPublicidad = document.createElement(`div`)
   contenedorPublicidad.className = `contenedor-modal-publicidad col-8 col-md-5 col-lg-5 col-xl-3`
@@ -374,6 +420,10 @@ selectFiltro.addEventListener(`change`, (e) => {
   cerrar.href = `#`
   cerrar.innerHTML = `cerrar`
   cerrar.className = `cerrar-modal-publicidad`
+
+
+
+  /* switch (e.value) */
   cerrar.addEventListener(`click`, e => {
     e.preventDefault()
     let contenedor = document.querySelector(`.overlay-publicidad`)
@@ -383,7 +433,7 @@ selectFiltro.addEventListener(`change`, (e) => {
   })
   let contenedorImg = document.createElement(`div`)
   let img = document.createElement(`img`)
-  img.src = `imagenes/slider-banner/publicidad.png`
+  img.src = `imagenes/publicidad/publicidad-${e.target.value}.png`
   img.alt = `imagen publicitaria`
   contenedorImg.append(img)
   contenedorPublicidad.append(cerrar, contenedorImg)
@@ -393,6 +443,9 @@ selectFiltro.addEventListener(`change`, (e) => {
   setTimeout(() => {
     overlayPublicidad.remove();
   }, 1700);
+  }
+
+  
 
 });
 
@@ -411,7 +464,6 @@ const crearBotonesCarrito = () => {
   let total = document.createElement(`span`);
   total.innerHTML = `Total: $ ${carrito.total}`;
   total.className = `p-2 text-center fw-bold d-block`;
-  total.style.border = `2px solid #0099CC`;
   total.style.color = `#0099CC`;
   contenedorTotal.append(total);
   let contenedorVaciar = document.createElement(`div`);
@@ -419,15 +471,19 @@ const crearBotonesCarrito = () => {
   let btnVaciar = document.createElement(`button`);
   btnVaciar.style.color = `#0099CC`;
   btnVaciar.style.border = `2px solid #0099CC`;
-  btnVaciar.className = `btn btn-outline d-block w-100 fw-bold`;
+  btnVaciar.className = `btn btn-outline d-block w-100 fw-bold `;
   btnVaciar.innerHTML = `Vaciar carrito`;
   contenedorVaciar.append(btnVaciar);
   contenedorBtn.append(contenedorTotal, contenedorVaciar);
   let btnComprar = document.createElement(`button`);
-  btnComprar.className = `btn btn-primary d-block col-11 col-md-8 col-lg-6 col-xl-4 mx-auto border-0`;
+  btnComprar.className = `btn btn-primary d-block col-11 col-md-8 col-lg-6 col-xl-4 mx-auto border-0 btn-agregar-carrito`;
   btnComprar.style.backgroundColor = `#0099CC`;
   btnComprar.innerHTML = `Comprar`;
-  btnComprar.addEventListener(`click`, crearCheckOut)
+  btnComprar.addEventListener(`click`, () => {
+      if (!(carrito.ids.length == 0)) {
+        crearCheckOut()
+      }
+  })
   divResumen.append(contenedorBtn, btnComprar);
   modalCarrito.append(divResumen);
   btnVaciar.addEventListener(`click`, (e) => {
@@ -532,7 +588,7 @@ const borrarProductoCarrito = (e) => {
 icnCarrito.addEventListener(`click`, (e) => {
   e.preventDefault();
   let estaCarrito = document.querySelector(`.carrito`);
-  let modalProducto = document.querySelector(`.overlay-modal`)
+  let modalProducto = document.querySelector(`.overlay-modal-producto`)
  
   if (modalProducto) {
     modalProducto.remove()
@@ -549,10 +605,10 @@ icnCarrito.addEventListener(`click`, (e) => {
 });
 
 
-
 /* CHECKOUT */
 
 const crearCheckOut = () => {
+
 
   let estaCarrito = document.querySelector(`.carrito`);
  
@@ -576,21 +632,44 @@ const crearCheckOut = () => {
 
   
   /* titulo datos personales */
+  let contenedorGrande1 = document.createElement(`div`);
   let contenedorUno = document.createElement(`div`);
   contenedorUno.className = `p-3 text-white titulo-pasos mb-2`
   let tituloDatosPersonales = document.createElement(`h3`);
   tituloDatosPersonales.innerHTML = `Datos Personales`
   contenedorUno.append(tituloDatosPersonales)
-  colDatos.append(contenedorUno)
+  contenedorGrande1.append(contenedorUno)
+  colDatos.append(contenedorGrande1)
+
+   /* titulo domicilio */
+   let contenedorGrande2 = document.createElement(`div`);
+   let contenedorDos = document.createElement(`div`);
+   contenedorDos.className = `p-3 text-white titulo-pasos mb-2`
+   let tituloDomicilio = document.createElement(`h3`);
+   tituloDomicilio.innerHTML = `Domicilio y entrega`
+   contenedorDos.append(tituloDomicilio)
+   contenedorGrande2.append(contenedorDos)
+   colDatos.append(contenedorGrande2)
+
+   /* titulo pago */
+   let contenedorGrande3 = document.createElement(`div`);
+  let contenedorTres = document.createElement(`div`);
+  contenedorTres.className = `p-3 text-white titulo-pasos mb-2`
+  let tituloPago = document.createElement(`h3`);
+  tituloPago.innerHTML = `Pago`
+  contenedorTres.append(tituloPago)
+  contenedorGrande3.append(contenedorTres)
+  colDatos.append(contenedorGrande3)
   
-  
+   mostrarFormDatosPersonales()
 
   /* form datos personales */
-  let formDatosPersonales = document.createElement(`form`);
+  function mostrarFormDatosPersonales () {
+    let formDatosPersonales = document.createElement(`form`);
   formDatosPersonales.action = `#`
-  formDatosPersonales.method = `get`
+  formDatosPersonales.method = `POST`
   formDatosPersonales.className = `form-datos-personales p-3`
-  colDatos.append(formDatosPersonales)
+  contenedorGrande1.append(formDatosPersonales)
 
   let labelCorrero = document.createElement(`label`)
   labelCorrero.setAttribute(`for`, `correo`)
@@ -600,6 +679,7 @@ const crearCheckOut = () => {
   inputCorreo.type = `email`
   inputCorreo.id = `correo`
   inputCorreo.className = `p-1 mb-3 w-100`
+  inputCorreo.setAttribute(`required`, ``)
   formDatosPersonales.append(labelCorrero)
   formDatosPersonales.append(inputCorreo)
 
@@ -611,6 +691,7 @@ const crearCheckOut = () => {
   inputNombre.type = `text`
   inputNombre.id = `nombre`
   inputNombre.className = `p-1 mb-3 w-100`
+  inputNombre.setAttribute(`required`, ``)
   formDatosPersonales.append(labelNombre)
   formDatosPersonales.append(inputNombre)
 
@@ -622,6 +703,7 @@ const crearCheckOut = () => {
   inputApellido.type = `text`
   inputApellido.id = `apellido`
   inputApellido.className = `p-1 mb-3 w-100`
+  inputApellido.setAttribute(`required`, ``)
   formDatosPersonales.append(labelApellido)
   formDatosPersonales.append(inputApellido)
 
@@ -633,6 +715,7 @@ const crearCheckOut = () => {
   inputDni.type = `number`
   inputDni.id = `dni`
   inputDni.className = `p-1 mb-3 w-100`
+  inputDni.setAttribute(`required`, ``)
   formDatosPersonales.append(labelDni)
   formDatosPersonales.append(inputDni)
 
@@ -644,6 +727,7 @@ const crearCheckOut = () => {
   inputTelefono.type = `number`
   inputTelefono.id = `telefono`
   inputTelefono.className = `p-1 mb-3 w-100`
+  inputTelefono.setAttribute(`required`, ``)
   formDatosPersonales.append(labelTelefono)
   formDatosPersonales.append(inputTelefono)
 
@@ -667,24 +751,33 @@ const crearCheckOut = () => {
   inputBoton1.className = `btn btn-primary btn-continuar`
   contenedorBoton1.append(inputBoton1)
   formDatosPersonales.append(contenedorBoton1)
+  inputBoton1.addEventListener(`click`, (e) => {
+    let inputs = document.querySelectorAll(`.form-datos-personales input`)
+    let errores = 0
+    for (let input of inputs) {
+      if (input.value == ``) {
+        errores++
+      }
+    }
+    if (errores == 0) {
+      formDatosPersonales.remove()
+      mostrarFormDomicilio()
+    }
+    
+  })
+  }
 
 
-
-  /* titulo domicilio */
-  let contenedorDos = document.createElement(`div`);
-  contenedorDos.className = `p-3 text-white titulo-pasos mb-2`
-  let tituloDomicilio = document.createElement(`h3`);
-  tituloDomicilio.innerHTML = `Domicilio y entrega`
-  contenedorDos.append(tituloDomicilio)
-  colDatos.append(contenedorDos)
 
   /* form domicilio */
 
-  let formDatosDomicilio = document.createElement(`form`);
+  function mostrarFormDomicilio () {
+    let formDatosDomicilio = document.createElement(`form`);
   formDatosDomicilio.action = `#`
-  formDatosDomicilio.method = `get`
+  formDatosDomicilio.method = `GET`
   formDatosDomicilio.className = `form-datos-personales p-3`
-  colDatos.append(formDatosDomicilio)
+  formDatosDomicilio.id = `formDatosDomicilio`
+  contenedorGrande2.append(formDatosDomicilio)
 
   let labelCodigoPostal = document.createElement(`label`)
   labelCodigoPostal.setAttribute(`for`, `codigoPostal`)
@@ -693,6 +786,7 @@ const crearCheckOut = () => {
   let inputCodigoPostal = document.createElement(`input`)
   inputCodigoPostal.type = `number`
   inputCodigoPostal.id = `codigoPostal`
+  inputCodigoPostal.setAttribute(`required`, ``) 
   inputCodigoPostal.className = `p-1 mb-3 w-100`
   formDatosDomicilio.append(labelCodigoPostal)
   formDatosDomicilio.append(inputCodigoPostal)
@@ -704,6 +798,7 @@ const crearCheckOut = () => {
   let inputCalle = document.createElement(`input`)
   inputCalle.type = `text`
   inputCalle.id = `Calle`
+  inputCalle.setAttribute(`required`, ``) 
   inputCalle.className = `p-1 mb-3 w-100`
   formDatosDomicilio.append(labelCalle)
   formDatosDomicilio.append(inputCalle)
@@ -724,6 +819,7 @@ const crearCheckOut = () => {
   inputNumeroCalle.type = `number`
   inputNumeroCalle.id = `numeroCalle`
   inputNumeroCalle.className = `p-1 mb-3 me-2`
+  inputNumeroCalle.setAttribute(`required`, ``) 
   contenedorNumero.append(labelNumeroCalle, inputNumeroCalle)
 
   let contenedorPiso = document.createElement(`div`)
@@ -738,6 +834,7 @@ const crearCheckOut = () => {
   inputPiso.type = `text`
   inputPiso.id = `piso`
   inputPiso.className = `p-1 mb-3 me-2`
+  inputPiso.setAttribute(`required`, ``) 
   contenedorPiso.append(labelPiso, inputPiso)
 
   let labelProvincia = document.createElement(`label`)
@@ -748,6 +845,7 @@ const crearCheckOut = () => {
   inputProvincia.type = `text`
   inputProvincia.id = `provincia`
   inputProvincia.className = `p-1 mb-3 w-100`
+  inputProvincia.setAttribute(`required`, ``) 
   formDatosDomicilio.append(labelProvincia, inputProvincia)
 
   let labelCiudad = document.createElement(`label`)
@@ -758,6 +856,7 @@ const crearCheckOut = () => {
   inputCiudad.type = `text`
   inputCiudad.id = `ciudad`
   inputCiudad.className = `p-1 mb-3 w-100`
+  inputCiudad.setAttribute(`required`, ``) 
   formDatosDomicilio.append(labelCiudad, inputCiudad)
 
   let tipoEntrega = document.createElement(`h4`)
@@ -797,119 +896,188 @@ const crearCheckOut = () => {
   inputBoton2.className = `btn btn-primary btn-continuar`
   contenedorBoton2.append(inputBoton2)
   formDatosDomicilio.append(contenedorBoton2)
+  inputBoton2.addEventListener(`click`, (e) => {
+  
+    let inputs = document.querySelectorAll(`#formDatosDomicilio input`)
+    console.log(inputs);
+    let errores = 0
+    for (let input of inputs) {
+      if (input.value == ``) {
+        errores++
+      }
+    }
+    if (errores == 0) {
+      formDatosDomicilio.remove()
+    mostrarFormPago()
+    }
 
-  /* titulo pago */
-  let contenedorTres = document.createElement(`div`);
-  contenedorTres.className = `p-3 text-white titulo-pasos mb-2`
-  let tituloPago = document.createElement(`h3`);
-  tituloPago.innerHTML = `Pago`
-  contenedorTres.append(tituloPago)
-  colDatos.append(contenedorTres)
+  })
+  }
+
+  
 
   /* form pago*/
 
-  let formPago = document.createElement(`form`);
-  formPago.action = `#`
-  formPago.method = `get`
-  formPago.className = `form-datos-personales p-3`
-  colDatos.append(formPago)
+  function mostrarFormPago (){
+    let formPago = document.createElement(`form`);
+    formPago.action = `#`
+    formPago.method = `GET`
+    formPago.className = `form-datos-personales p-3`
+    formPago.id = `formPago`
+    contenedorGrande3.append(formPago)
+  
+    let labelNumeroTarjeta = document.createElement(`label`)
+    labelNumeroTarjeta.setAttribute(`for`, `numeroTarjeta`)
+    labelNumeroTarjeta.className = `mb-1`
+    labelNumeroTarjeta.innerHTML = `Numero Tarjeta`
+    let inputNumeroTarjeta = document.createElement(`input`)
+    inputNumeroTarjeta.type = `number`
+    inputNumeroTarjeta.id = `numeroTarjeta`
+    inputNumeroTarjeta.className = `p-1 mb-3 w-100`
+    inputNumeroTarjeta.setAttribute(`required`, ``)
+    formPago.append(labelNumeroTarjeta, inputNumeroTarjeta)
+  
+    let cuotas = document.createElement(`label`)
+    cuotas.innerHTML = `Cuotas`
+    formPago.append(cuotas)
+  
+    let SelectCuotas = document.createElement(`select`)
+    SelectCuotas.className = `p-1 mb-3 w-100`
+    let cuota1 = document.createElement(`option`)
+    cuota1.value = `1`
+    cuota1.innerHTML = `1`
+    let cuota3 = document.createElement(`option`)
+    cuota3.value = `3`
+    cuota3.innerHTML = `3`
+    let cuota6 = document.createElement(`option`)
+    cuota6.value = `6`
+    cuota6.innerHTML = `6`
+    let cuota12 = document.createElement(`option`)
+    cuota12.value = `12`
+    cuota12.innerHTML = `12`
+    SelectCuotas.append(cuota1, cuota3, cuota6, cuota12)
+    formPago.append(SelectCuotas)
+  
+  
+    let labelFecha = document.createElement(`label`)
+    labelFecha.className = `mb-1`
+    labelFecha.innerHTML = `Fecha de vencimiento`
+  
+    let contenedorFecha = document.createElement(`div`)
+    contenedorFecha.className = `d-flex`
+    formPago.append(contenedorFecha)
+  
+    let contenedorMes = document.createElement(`div`)
+    contenedorMes.className = `dos-inputs`
+    contenedorFecha.append(contenedorMes)
+   
+    let inputFecha = document.createElement(`input`)
+    inputFecha.type = `number`
+    inputFecha.className = `p-1 mb-3 me-2`
+    inputFecha.setAttribute(`required`, ``)
+    contenedorMes.append(inputFecha)
+  
+    let contenedorAno = document.createElement(`div`)
+    contenedorAno.className = `dos-inputs`
+    contenedorFecha.append(contenedorAno)
+  
+    let inputAno = document.createElement(`input`)
+    inputAno.type = `number`
+    inputAno.className = `p-1 mb-3 me-2`
+    inputAno.setAttribute(`required`, ``)
+    contenedorAno.append(inputAno)
+  
+    formPago.append(labelFecha, contenedorFecha)
+  
+    let labelCodigoSeguridad = document.createElement(`label`)
+    labelCodigoSeguridad.setAttribute(`for`, `codigoSeguridad`)
+    labelCodigoSeguridad.className = `mb-1`
+    labelCodigoSeguridad.innerHTML = `Codigo de seguridad`
+    let inputCodigoSeguridad = document.createElement(`input`)
+    inputCodigoSeguridad.type = `number`
+    inputCodigoSeguridad.id = `codigoSeguridad`
+    inputCodigoSeguridad.className = `p-1 mb-3 w-100`
+    inputCodigoSeguridad.setAttribute(`required`, ``)
+    formPago.append(labelCodigoSeguridad, inputCodigoSeguridad)
+  
+    let labelDniTarjeta = document.createElement(`label`)
+    labelDniTarjeta.setAttribute(`for`, `dniTarjeta`)
+    labelDniTarjeta.className = `mb-1`
+    labelDniTarjeta.innerHTML = `Dni`
+    let inputDniTarjeta = document.createElement(`input`)
+    inputDniTarjeta.type = `number`
+    inputDniTarjeta.id = `dniTarjeta`
+    inputDniTarjeta.className = `p-1 mb-3 w-100`
+    inputDniTarjeta.setAttribute(`required`, ``)
+    formPago.append(labelDniTarjeta, inputDniTarjeta)
+  
+    let contenedorBoton3 = document.createElement(`div`)
+    contenedorBoton3.className = `d-flex justify-content-end`
+    let inputBoton3 = document.createElement(`input`)
+    inputBoton3.value = `Finalizar Compra`
+    inputBoton3.type = `submit`
+    inputBoton3.className = `btn btn-primary btn-continuar`
+    contenedorBoton3.append(inputBoton3)
+    formPago.append(contenedorBoton3)
+    inputBoton3.addEventListener(`click`, (e) => {
 
-  let labelNumeroTarjeta = document.createElement(`label`)
-  labelNumeroTarjeta.setAttribute(`for`, `numeroTarjeta`)
-  labelNumeroTarjeta.className = `mb-1`
-  labelNumeroTarjeta.innerHTML = `Numero Tarjeta`
-  let inputNumeroTarjeta = document.createElement(`input`)
-  inputNumeroTarjeta.type = `text`
-  inputNumeroTarjeta.id = `numeroTarjeta`
-  inputNumeroTarjeta.className = `p-1 mb-3 w-100`
-  formPago.append(labelNumeroTarjeta, inputNumeroTarjeta)
-
-  let cuotas = document.createElement(`label`)
-  cuotas.innerHTML = `Cuotas`
-  formPago.append(cuotas)
-
-  let SelectCuotas = document.createElement(`select`)
-  SelectCuotas.className = `p-1 mb-3 w-100`
-  let cuota1 = document.createElement(`option`)
-  cuota1.value = `1`
-  cuota1.innerHTML = `1`
-  let cuota3 = document.createElement(`option`)
-  cuota3.value = `3`
-  cuota3.innerHTML = `3`
-  let cuota6 = document.createElement(`option`)
-  cuota6.value = `6`
-  cuota6.innerHTML = `6`
-  let cuota12 = document.createElement(`option`)
-  cuota12.value = `12`
-  cuota12.innerHTML = `12`
-  SelectCuotas.append(cuota1, cuota3, cuota6, cuota12)
-  formPago.append(SelectCuotas)
-
-
-  let labelFecha = document.createElement(`label`)
-  labelFecha.className = `mb-1`
-  labelFecha.innerHTML = `Fecha de vencimiento`
-
-  let contenedorFecha = document.createElement(`div`)
-  contenedorFecha.className = `d-flex`
-  formDatosDomicilio.append(contenedorFecha)
-
-  let contenedorMes = document.createElement(`div`)
-  contenedorMes.className = `dos-inputs`
-  contenedorFecha.append(contenedorMes)
+      let inputs = document.querySelectorAll(`#formPago input`)
+     
+    let errores = 0
+    for (let input of inputs) {
+      if (input.value == ``) {
+        errores++
+      }
+    }
+    if (errores == 0) {
+      let contenedorFinalizada  = document.createElement(`div`)
+      contenedorFinalizada.className = `compra-confirmada d-flex justify-content-center align-items-center`
+      let imgFinalizada = document.createElement(`img`)
+      imgFinalizada.src = `imagenes/iconografia/check.gif`
+      imgFinalizada.alt = `foto de compra finalizada`
+      contenedorFinalizada.append(imgFinalizada)
+      document.body.append(contenedorFinalizada)
+  
+      let overlay = document.querySelector(`.overlay-modal`)
+  
+      let Modal = document.querySelector(`.overlay-modal-producto`)
+      overlay.remove()
+  
+      if (Modal) {
+        Modal.remove()
+      }
  
-  let inputFecha = document.createElement(`input`)
-  inputFecha.type = `number`
-  inputFecha.className = `p-1 mb-3 me-2`
-  contenedorMes.append(inputFecha)
+  
+      setTimeout(() => {
+       let confirmada = document.querySelector(`.compra-confirmada`) 
+        confirmada.remove();
+        /* limpio el carrito */
+        carrito.ids = [];
+        carrito.cant = [];
+        carrito.total = 0;
+        /* borro la notificacion del carrito */
+        let notiCarrito = document.querySelector(`.notificacion-carrito`);
+        notiCarrito.innerHTML = 0;
+        notiCarrito.style.opacity = 0;
+      }, 3800); 
+    }
+      
+   
+    })
 
-  let contenedorAno = document.createElement(`div`)
-  contenedorAno.className = `dos-inputs`
-  contenedorFecha.append(contenedorAno)
 
-  let inputAno = document.createElement(`input`)
-  inputAno.type = `number`
-  inputAno.className = `p-1 mb-3 me-2`
-  contenedorAno.append(inputAno)
+    
+  
+  }
 
-  formPago.append(labelFecha, contenedorFecha)
-
-  let labelCodigoSeguridad = document.createElement(`label`)
-  labelCodigoSeguridad.setAttribute(`for`, `codigoSeguridad`)
-  labelCodigoSeguridad.className = `mb-1`
-  labelCodigoSeguridad.innerHTML = `Codigo de seguridad`
-  let inputCodigoSeguridad = document.createElement(`input`)
-  inputCodigoSeguridad.type = `number`
-  inputCodigoSeguridad.id = `codigoSeguridad`
-  inputCodigoSeguridad.className = `p-1 mb-3 w-100`
-  formPago.append(labelCodigoSeguridad, inputCodigoSeguridad)
-
-  let labelDniTarjeta = document.createElement(`label`)
-  labelDniTarjeta.setAttribute(`for`, `dniTarjeta`)
-  labelDniTarjeta.className = `mb-1`
-  labelDniTarjeta.innerHTML = `Dni`
-  let inputDniTarjeta = document.createElement(`input`)
-  inputDniTarjeta.type = `number`
-  inputDniTarjeta.id = `dniTarjeta`
-  inputDniTarjeta.className = `p-1 mb-3 w-100`
-  formPago.append(labelDniTarjeta, inputDniTarjeta)
-
-  let contenedorBoton3 = document.createElement(`div`)
-  contenedorBoton3.className = `d-flex justify-content-end`
-  let inputBoton3 = document.createElement(`input`)
-  inputBoton3.value = `Continuar`
-  inputBoton3.type = `submit`
-  inputBoton3.className = `btn btn-primary btn-continuar`
-  contenedorBoton3.append(inputBoton3)
-  formPago.append(contenedorBoton3)
-
+ 
 
 
 
 
   /* col-resumen */
   let colResumen = document.createElement(`div`);
-  colResumen.className = `col-12 col-md-4 px-4 resumen-productos`
+  colResumen.className = `col-12 col-md-4 px-4 resumen-productos overflow-auto`
 
   let filaResumen = document.createElement(`div`);
   filaResumen.className = `row row-cols-1 overflow-auto py-2`
@@ -924,7 +1092,7 @@ const crearCheckOut = () => {
     )[0];
 
    let contenedorCard = document.createElement(`div`);
-   contenedorCard.className = `card my-2`
+   contenedorCard.className = `card my-2 sticky-top`
    let contenedorFluid = document.createElement(`div`);
    contenedorFluid.className = `container-fluid`
    let contenedorFilaProducto = document.createElement(`div`);
@@ -961,6 +1129,7 @@ const crearCheckOut = () => {
 
     contenedorFilaProducto.append(col1, col2)
     filaResumen.append(contenedorCard)
+
    
   });
 

@@ -330,6 +330,18 @@ footer input[type="submit"]:hover {
     z-index: 999;
 }
 
+.overlay-modal-producto {
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(251, 251, 251);
+    position: fixed;
+    top: 67px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+}
+
 .contenedor-modal-producto {
     position: fixed;
     top: 67px;
@@ -434,14 +446,16 @@ footer input[type="submit"]:hover {
 }
 
 .btn-agregar-carrito:hover {
-    background-color: #09d44d;
+    /* background-color: #09d44d;
     transition: 0.3s all;
     box-shadow: 0px 0px 18px 3px #57da83;
     -webkit-box-shadow: 0px 0px 18px 3px #57da83;
-    -moz-box-shadow: 0px 0px 18px 3px #57da83;
+    -moz-box-shadow: 0px 0px 18px 3px #57da83; */
+    background-color: #047297;
+    transition: 0.3s all;
 }
 
-.btn-agregar-favoritos {
+.btn-comprar-ahora {
     background-color: white;
     color: #0099CC;
     padding: 10px;
@@ -449,13 +463,16 @@ footer input[type="submit"]:hover {
     border: 0;
 }
 
-.btn-agregar-favoritos:hover {
-    background-color: #db0d4b;
+.btn-comprar-ahora:hover {
+    /* background-color: #db0d4b;
     color: white;
     transition: 0.3s all;
     box-shadow: 0px 0px 18px 3px #eb4e7d;
     -webkit-box-shadow: 0px 0px 18px 3px #eb4e7d;
-    -moz-box-shadow: 0px 0px 18px 3px #eb4e7d;
+    -moz-box-shadow: 0px 0px 18px 3px #eb4e7d; */
+    background-color: #5dcaee;
+    transition: 0.3s all;
+    color: white;
 }
 
 /* VENTANA MODAL PUBLICIDAD */
